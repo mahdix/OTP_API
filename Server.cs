@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 
-namespace ConsoleApplication
+namespace OTP_API
 {
-    public class Program
+    public class Server
     {
         public static void Main(string[] args)
         {
