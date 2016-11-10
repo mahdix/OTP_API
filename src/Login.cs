@@ -26,7 +26,6 @@ namespace OTP_API
                 if ( storedPassword != null ) 
                 {
                     success = (storedPassword == password);
-
                 }
             }
 

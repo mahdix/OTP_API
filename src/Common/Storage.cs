@@ -58,6 +58,7 @@ namespace OTP_API.Common
             cache.Clear();
         }
 
+        //Private nested class to keep track of password + expiration timestamp of cache entries
         private class CacheEntry
         {
             public string Data;
