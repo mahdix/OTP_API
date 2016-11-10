@@ -10,26 +10,37 @@ namespace OTP_API
     {
         public static void Main(string[] args)
         {
-			var host = new WebHostBuilder()
-				.UseKestrel()
-				.UseStartup<Startup>()
-				.Build();
+            var host = new WebHostBuilder()
+                .UseKestrel()
+                .UseStartup<Startup>()
+                .Build();
 
-			host.Run();
+            host.Run();
         }
     }
 
-	public class Startup
-	{
-		public void Configure(IApplicationBuilder app)
-		{            
-			app.Run(async (context) =>
-					{
-					await context.Response.WriteAsync(
-							"Hello World. The Time is: " + 
-							DateTime.Now.ToString("hh:mm:ss tt"));
+    public class Startup
+    {
+        public void Configure(IApplicationBuilder app)
+        {            
+            app.Map("/register", ProcessRegistration);
+            app.Map("/login", ProcessLogin);
+        }
 
-					});
-		}
-	}
+        private static void ProcessRegistration(IApplicationBuilder app)
+        {
+            app.Run(async context =>
+                    {
+                    await context.Response.WriteAsync("procee reg");
+                    });
+        }
+
+        private static void ProcessLogin(IApplicationBuilder app)
+        {
+            app.Run(async context =>
+                    {
+                    await context.Response.WriteAsync("process login");
+                    });
+        }
+    }
 }
