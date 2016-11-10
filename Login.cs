@@ -16,6 +16,7 @@ namespace OTP_API
             string password = context.Request.Query["pass"]; 
             bool success = false;
 
+            //fail fast if inputs are invalid
             if ( userName == null || password == null || userName.Length == 0 || password.Length == 0 )
             {
                 success = false;
