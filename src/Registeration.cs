@@ -13,13 +13,14 @@ namespace OTP_API
     public class Registration
     {
         //This is the entry gateway of the Registration logic which will be called from
-        //Web server
-        public static Task Process(HttpContext context) {
-            string userName = context.Request.Query["user"]; 
+        //Web server. We try to make this code independent of the external interface
+        //So it receives user-name and returns a response which can be used by any entity 
+        //outside
+        public static string Process(string userName) {
             string otp = GenerateOneTimePassword(userName);
             Storage.Set(userName, otp);
 
-            return context.Response.WriteAsync(otp);
+            return otp;
         }
 
         //Generate OTP based on given user name

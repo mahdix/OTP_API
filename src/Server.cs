@@ -34,7 +34,9 @@ namespace OTP_API
         {
             app.Run(async context =>
                     {
-                        await Registration.Process(context);
+                        string userName = context.Request.Query["user"]; 
+
+                        await context.Response.WriteAsync(Registration.Process(userName));
                     });
         }
 
@@ -42,7 +44,11 @@ namespace OTP_API
         {
             app.Run(async context =>
                     {
-                        await Login.Process(context);
+                        //fetch provided user and password
+                        string userName = context.Request.Query["user"]; 
+                        string password = context.Request.Query["pass"]; 
+
+                        await context.Response.WriteAsync(Login.Process(userName, password));
                     });
         }
     }

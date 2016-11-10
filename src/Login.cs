@@ -11,10 +11,7 @@ namespace OTP_API
     public class Login
     {
         //The main entry gor Login checking which is called from web server
-        public static Task Process(HttpContext context) {
-            //fetch provided user and password
-            string userName = context.Request.Query["user"]; 
-            string password = context.Request.Query["pass"]; 
+        public static string Process(string userName, string password) {
             bool success = false;
 
             //fail fast if inputs are invalid
@@ -30,11 +27,11 @@ namespace OTP_API
 
             if ( success )
             {
-                return context.Response.WriteAsync("OK");
+                return "OK";
             }
             else
             {
-                return context.Response.WriteAsync("FAIL");
+                return "FAIL";
             }
         }
     }

@@ -18,6 +18,11 @@ namespace OTP_API.Test
         [TestCase]
         public void TestStorage()
         {
+            Storage.Set("key1", "value1");
+            Assert.AreEqual("value1", Storage.Get("key1"));
+
+            Storage.Set("key2", "20918732190738921739821897321897398");
+            Assert.AreEqual("20918732190738921739821897321897398", Storage.Get("key2"));
         }
 
         [TestCase]
@@ -28,6 +33,7 @@ namespace OTP_API.Test
         [TestCase]
         public void TestRegister()
         {
+
         }
 
     }
