@@ -9,14 +9,31 @@ namespace OTP_API
 {
     public class Login
     {
+        //The main entry gor Login checking which is called from web server
         public static Task Process(HttpContext context) {
+            //fetch provided user and password
             string userName = context.Request.Query["user"]; 
             string password = context.Request.Query["pass"]; 
+            bool success = false;
 
-            string storedPassword = Storage.Get(userName);
-            bool success = (storedPassword == password);
+            if ( userName == null || password == null || userName.Length == 0 || password.Length == 0 )
+            {
+                success = false;
+            } 
+            else 
+            {
+                string storedPassword = Storage.Get(userName);
+                success = (storedPassword == password);
+            }
 
-            return context.Response.WriteAsync(success ? "OK":"FAIL");
+            if ( success )
+            {
+                return context.Response.WriteAsync("OK");
+            }
+            else
+            {
+                return context.Response.WriteAsync("FAIL");
+            }
         }
     }
 }
