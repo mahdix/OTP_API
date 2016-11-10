@@ -11,7 +11,9 @@ namespace OTP_API
     {
         public static Task Process(HttpContext context) {
             string userName = context.Request.Query["user"]; 
-            return context.Response.WriteAsync("process regg for " + context.Request.Query["user"]);
+            Storage.Set(userName, "pass");
+
+            return context.Response.WriteAsync("pass");
         }
     }
 }

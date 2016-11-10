@@ -11,7 +11,12 @@ namespace OTP_API
     {
         public static Task Process(HttpContext context) {
             string userName = context.Request.Query["user"]; 
-            return context.Response.WriteAsync("process login for " + context.Request.Query["user"]);
+            string password = context.Request.Query["pass"]; 
+
+            string storedPassword = Storage.Get(userName);
+            bool success = (storedPassword == password);
+
+            return context.Response.WriteAsync(success ? "OK":"FAIL");
         }
     }
 }
