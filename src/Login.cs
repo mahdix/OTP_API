@@ -32,7 +32,9 @@ namespace OTP_API
 
             if ( success )
             {
+                //Upon successfull login, remove the password because it is one-time
                 Storage.Remove(userName);
+
                 return "OK";
             }
             else
