@@ -17,7 +17,13 @@ namespace OTP_API
         //So it receives user-name and returns a response which can be used by any entity 
         //outside
         public static string Process(string userName) {
+            if ( userName == null || userName.Length == 0 )
+            {
+                return null;
+            }
+
             string otp = GenerateOneTimePassword(userName);
+
             Storage.Set(userName, otp);
 
             return otp;

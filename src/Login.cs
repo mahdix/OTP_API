@@ -22,11 +22,17 @@ namespace OTP_API
             else 
             {
                 string storedPassword = Storage.Get(userName);
-                success = (storedPassword == password);
+
+                if ( storedPassword != null ) 
+                {
+                    success = (storedPassword == password);
+
+                }
             }
 
             if ( success )
             {
+                Storage.Remove(userName);
                 return "OK";
             }
             else

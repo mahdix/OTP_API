@@ -17,9 +17,24 @@ namespace OTP_API.Common
             cache[key] = data;
         }
 
+        public static void Remove(string key)
+        {
+            cache.remove(key);
+        }
+
         public static string Get(string key) 
         {
+            if ( !cache.ContainsKey(key) )
+            {
+                return null;
+            }
+
             return cache[key];
+        }
+
+        public static void Clear() 
+        {
+            cache.Clear();
         }
     }
 }
