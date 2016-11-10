@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -31,7 +32,7 @@ namespace OTP_API
         {
             app.Run(async context =>
                     {
-                    await context.Response.WriteAsync("procee reg");
+                        await innerProcessRegistration(context);
                     });
         }
 
@@ -39,8 +40,16 @@ namespace OTP_API
         {
             app.Run(async context =>
                     {
-                    await context.Response.WriteAsync("process login");
+                        await innerProcessLogin(context);
                     });
+        }
+
+        private static Task innerProcessRegistration(HttpContext context) {
+            return context.Response.WriteAsync("process regg");
+        }
+
+        private static Task innerProcessLogin(HttpContext context) {
+            return context.Response.WriteAsync("process login");
         }
     }
 }
