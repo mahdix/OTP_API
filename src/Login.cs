@@ -35,10 +35,20 @@ namespace OTP_API
                 //Upon successfull login, remove the password because it is one-time
                 Storage.Remove(userName);
 
+                if ( Data.LogSuccessfulLogin ) 
+                {
+                    Logger.LogSuccessfulLogin(userName, password);
+                }
+
                 return "OK";
             }
             else
             {
+                if ( Data.LogFailedLogin ) 
+                {
+                    Logger.LogFailedLogin(userName, password);
+                }
+
                 return "FAIL";
             }
         }

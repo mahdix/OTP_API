@@ -22,6 +22,10 @@ namespace OTP_API.Test
 
             //restore TTL to the default value
             Data.TTL = 30;
+
+            //we don't need logging during tests
+            Data.LogFailedLogin = false;
+            Data.LogSuccessfulLogin = false;
         }
 
         [TestCase("mahdi", "daniel")]

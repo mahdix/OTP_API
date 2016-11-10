@@ -133,5 +133,6 @@
 "/Users/mahdi/cs/OTP_API/src/Registeration.cs"
 "/Users/mahdi/cs/OTP_API/src/Server.cs"
 "/Users/mahdi/cs/OTP_API/src/Common/Data.cs"
+"/Users/mahdi/cs/OTP_API/src/Common/Logger.cs"
 "/Users/mahdi/cs/OTP_API/src/Common/Storage.cs"
 "/Users/mahdi/cs/OTP_API/test/Test.cs"
