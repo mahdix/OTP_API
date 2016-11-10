@@ -37,7 +37,7 @@ namespace OTP_API
 
                 if ( Data.LogSuccessfulLogin ) 
                 {
-                    Logger.LogSuccessfulLogin(userName, password);
+                    Logger.LogResult(userName, password, true);
                 }
 
                 return "OK";
@@ -46,7 +46,7 @@ namespace OTP_API
             {
                 if ( Data.LogFailedLogin ) 
                 {
-                    Logger.LogFailedLogin(userName, password);
+                    Logger.LogResult(userName, password, false);
                 }
 
                 return "FAIL";
