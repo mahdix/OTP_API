@@ -1,14 +1,15 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v1.0",
-    "signature": "3bfd1265c297cf5ca4b7a91f87f3f5a738f8e082"
+    "signature": "bd2c3e43eb341de80b53c809a1998587139adb0a"
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v1.0": {
       "OTP_API/1.0.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.Server.Kestrel": "1.0.0"
+          "Microsoft.AspNetCore.Server.Kestrel": "1.0.0",
+          "NUnit": "3.5.0"
         },
         "runtime": {
           "OTP_API.dll": {}
@@ -217,6 +218,11 @@
           "lib/netstandard1.1/Microsoft.Net.Http.Headers.dll": {}
         }
       },
+      "NUnit/3.5.0": {
+        "runtime": {
+          "lib/dotnet/nunit.framework.dll": {}
+        }
+      },
       "System.Diagnostics.Contracts/4.0.1": {
         "runtime": {
           "lib/netstandard1.0/System.Diagnostics.Contracts.dll": {}
@@ -359,6 +365,11 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-1lr92itF1fKR2oEQ6gk1IUsuCgp7UMlf/b1sjlAyuDeUnttj39ra59GQHYpomglJX1UVNpi1/cSBbEsXoNeIhw=="
+    },
+    "NUnit/3.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-z/03NfC+ci3/OzlIlClH+nd0LZ99OU3wS74nAtLVnPo1oq6nvd+CGxTHZAc8n8xxDLeLMofZ8AjahxlROEhf/Q=="
     },
     "System.Diagnostics.Contracts/4.0.1": {
       "type": "package",

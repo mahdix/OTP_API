@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 
-namespace OTP_API
+namespace OTP_API.Common
 {
     public class Storage
     {
