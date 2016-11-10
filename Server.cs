@@ -20,10 +20,12 @@ namespace OTP_API
         }
     }
 
+    //The class which handles API handler registrations
     public class Startup
     {
         public void Configure(IApplicationBuilder app)
         {            
+            //Assign two handlers for two different API calls: register a new user and login an existing user
             app.Map("/register", ProcessRegistration);
             app.Map("/login", ProcessLogin);
         }
@@ -32,7 +34,7 @@ namespace OTP_API
         {
             app.Run(async context =>
                     {
-                        await innerProcessRegistration(context);
+                        await Registration.Process(context);
                     });
         }
 
@@ -40,16 +42,8 @@ namespace OTP_API
         {
             app.Run(async context =>
                     {
-                        await innerProcessLogin(context);
+                        await Login.Process(context);
                     });
-        }
-
-        private static Task innerProcessRegistration(HttpContext context) {
-            return context.Response.WriteAsync("process regg");
-        }
-
-        private static Task innerProcessLogin(HttpContext context) {
-            return context.Response.WriteAsync("process login");
         }
     }
 }
